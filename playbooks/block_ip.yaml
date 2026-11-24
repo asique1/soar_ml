@@ -1,0 +1,13 @@
+name: block_ip
+description: Simulate blocking a suspicious source IP
+triggers:
+  alert_types:
+    - ssh brute force
+    - rdp brute force
+    - suspicious ip
+  labels:
+    - malicious
+  minimum_risk: 70
+action:
+  type: block_ip
+  simulated: true

@@ -1,0 +1,228 @@
+SOAR ML end-to-end demo
+Generated at: 2026-11-24T13:18:18.623977+00:00
+Source: CIC-IDS2017 cleaned data; scenarios selected from a deterministic stratified sample.
+Telegram forced to simulation mode for this demo; IP blocking remains simulated.
+
+{
+  "scenario": "true_incident",
+  "ground_truth": "malicious",
+  "processing_started_at": "2026-11-24T13:19:22.118771+00:00",
+  "processing_completed_at": "2026-11-24T13:19:22.357417+00:00",
+  "processing_seconds": 0.238646,
+  "enrichment": {
+    "ip": {
+      "ip": "198.51.100.10",
+      "abuseipdb": {
+        "source": "mock",
+        "abuse_confidence": 0,
+        "status": "mock"
+      },
+      "geoip": {
+        "source": "mock",
+        "country": "Unknown",
+        "city": "Unknown",
+        "asn": "Unknown"
+      }
+    },
+    "file_hash": {
+      "status": "skipped",
+      "reason": "No file hash supplied"
+    }
+  },
+  "ml_decision": {
+    "label": "malicious",
+    "risk": 100.0,
+    "probability": 0.9999955892562866,
+    "top_features": [
+      {
+        "feature": "Bwd_Packet_Length_Std",
+        "shap_value": 6.030955791473389
+      },
+      {
+        "feature": "Init_Win_bytes_forward",
+        "shap_value": 1.68398118019104
+      },
+      {
+        "feature": "Init_Win_bytes_backward",
+        "shap_value": 1.6735538244247437
+      },
+      {
+        "feature": "Destination_Port",
+        "shap_value": 1.5712611675262451
+      },
+      {
+        "feature": "Bwd_Packet_Length_Mean",
+        "shap_value": 1.2684051990509033
+      }
+    ],
+    "model": "xgboost"
+  },
+  "selected_playbooks": [
+    "block_ip",
+    "create_ticket",
+    "notify_telegram"
+  ],
+  "actions": [
+    {
+      "action": "block_ip",
+      "status": "pending_approval",
+      "alert_id": "DEMO-TRUE_INCIDENT",
+      "ip": "198.51.100.10"
+    },
+    {
+      "ticket_id": "TICKET-DEMO-TRUE_INCIDENT",
+      "alert_id": "DEMO-TRUE_INCIDENT",
+      "alert_type": "ssh brute force",
+      "risk": 100.0,
+      "label": "malicious",
+      "status": "open",
+      "timestamp": "2026-11-24T13:19:22.307697+00:00"
+    },
+    {
+      "action": "notify_telegram",
+      "status": "simulated",
+      "alert_id": "DEMO-TRUE_INCIDENT",
+      "message": "SOAR alert: DEMO-TRUE_INCIDENT\nType: ssh brute force\nRisk: 100.00/100\nML label: malicious\nTop SHAP features: Bwd_Packet_Length_Std, Init_Win_bytes_forward, Init_Win_bytes_backward\nSelected playbooks: block_ip, create_ticket, notify_telegram\nApproval required: Yes",
+      "timestamp": "2026-11-24T13:19:22.323246+00:00"
+    }
+  ],
+  "approval_required": true
+}
+
+{
+  "scenario": "false_positive",
+  "ground_truth": "benign",
+  "processing_started_at": "2026-11-24T13:19:22.357635+00:00",
+  "processing_completed_at": "2026-11-24T13:19:22.465498+00:00",
+  "processing_seconds": 0.107863,
+  "enrichment": {
+    "ip": {
+      "ip": "198.51.100.10",
+      "abuseipdb": {
+        "source": "mock",
+        "abuse_confidence": 0,
+        "status": "mock"
+      },
+      "geoip": {
+        "source": "mock",
+        "country": "Unknown",
+        "city": "Unknown",
+        "asn": "Unknown"
+      }
+    },
+    "file_hash": {
+      "status": "skipped",
+      "reason": "No file hash supplied"
+    }
+  },
+  "ml_decision": {
+    "label": "benign",
+    "risk": 0.0,
+    "probability": 4.682488565777021e-07,
+    "top_features": [
+      {
+        "feature": "Init_Win_bytes_forward",
+        "shap_value": -2.742065191268921
+      },
+      {
+        "feature": "Destination_Port",
+        "shap_value": -2.536414623260498
+      },
+      {
+        "feature": "Bwd_Packets_s",
+        "shap_value": -1.022615909576416
+      },
+      {
+        "feature": "Bwd_Packet_Length_Std",
+        "shap_value": -0.8501920700073242
+      },
+      {
+        "feature": "Average_Packet_Size",
+        "shap_value": -0.746536374092102
+      }
+    ],
+    "model": "xgboost"
+  },
+  "selected_playbooks": [],
+  "actions": [],
+  "approval_required": false
+}
+
+{
+  "scenario": "borderline",
+  "ground_truth": "malicious",
+  "processing_started_at": "2026-11-24T13:19:22.465618+00:00",
+  "processing_completed_at": "2026-11-24T13:19:22.571954+00:00",
+  "processing_seconds": 0.106336,
+  "enrichment": {
+    "ip": {
+      "ip": "198.51.100.10",
+      "abuseipdb": {
+        "source": "mock",
+        "abuse_confidence": 0,
+        "status": "mock"
+      },
+      "geoip": {
+        "source": "mock",
+        "country": "Unknown",
+        "city": "Unknown",
+        "asn": "Unknown"
+      }
+    },
+    "file_hash": {
+      "status": "skipped",
+      "reason": "No file hash supplied"
+    }
+  },
+  "ml_decision": {
+    "label": "malicious",
+    "risk": 51.79,
+    "probability": 0.5179186463356018,
+    "top_features": [
+      {
+        "feature": "Fwd_IAT_Min",
+        "shap_value": 0.9217488169670105
+      },
+      {
+        "feature": "Bwd_Packet_Length_Mean",
+        "shap_value": 0.5853911638259888
+      },
+      {
+        "feature": "Average_Packet_Size",
+        "shap_value": -0.5522940158843994
+      },
+      {
+        "feature": "PSH_Flag_Count",
+        "shap_value": 0.5237062573432922
+      },
+      {
+        "feature": "Bwd_Packet_Length_Std",
+        "shap_value": -0.5214449763298035
+      }
+    ],
+    "model": "xgboost"
+  },
+  "selected_playbooks": [
+    "create_ticket",
+    "notify_telegram"
+  ],
+  "actions": [
+    {
+      "ticket_id": "TICKET-DEMO-BORDERLINE",
+      "alert_id": "DEMO-BORDERLINE",
+      "alert_type": "rdp brute force",
+      "risk": 51.79,
+      "label": "malicious",
+      "status": "open",
+      "timestamp": "2026-11-24T13:19:22.529902+00:00"
+    },
+    {
+      "action": "notify_telegram",
+      "status": "simulated",
+      "alert_id": "DEMO-BORDERLINE",
+      "message": "SOAR alert: DEMO-BORDERLINE\nType: rdp brute force\nRisk: 51.79/100\nML label: malicious\nTop SHAP features: Fwd_IAT_Min, Bwd_Packet_Length_Mean, Average_Packet_Size\nSelected playbooks: create_ticket, notify_telegram\nApproval required: No",
+      "timestamp": "2026-11-24T13:19:22.543702+00:00"
+    }
+  ],
+  "approval_required": false
+}

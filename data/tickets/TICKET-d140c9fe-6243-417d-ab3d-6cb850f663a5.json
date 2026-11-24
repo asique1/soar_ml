@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TICKET-d140c9fe-6243-417d-ab3d-6cb850f663a5",
+  "alert_id": "d140c9fe-6243-417d-ab3d-6cb850f663a5",
+  "alert_type": "suspicious ip",
+  "risk": 99.55,
+  "label": "malicious",
+  "status": "open",
+  "timestamp": "2026-11-22T05:17:32.617791+00:00"
+}

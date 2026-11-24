@@ -1,0 +1,14 @@
+name: create_ticket
+description: Create a local incident ticket
+triggers:
+  alert_types:
+    - ssh brute force
+    - rdp brute force
+    - suspicious ip
+    - malicious file hash
+  labels:
+    - malicious
+  minimum_risk: 50
+action:
+  type: create_ticket
+  simulated: false

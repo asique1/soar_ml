@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TICKET-707513be-2c1b-42fb-8ad6-a82ffe8c1486",
+  "alert_id": "707513be-2c1b-42fb-8ad6-a82ffe8c1486",
+  "alert_type": "suspicious ip",
+  "risk": 99.55,
+  "label": "malicious",
+  "status": "open",
+  "timestamp": "2026-11-22T05:26:35.902780+00:00"
+}

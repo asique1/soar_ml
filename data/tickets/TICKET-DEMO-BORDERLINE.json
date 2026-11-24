@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TICKET-DEMO-BORDERLINE",
+  "alert_id": "DEMO-BORDERLINE",
+  "alert_type": "rdp brute force",
+  "risk": 51.79,
+  "label": "malicious",
+  "status": "open",
+  "timestamp": "2026-11-24T13:19:22.529902+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TICKET-6dd6c52f-6f50-4531-8d08-5f10e8d7804d",
+  "alert_id": "6dd6c52f-6f50-4531-8d08-5f10e8d7804d",
+  "alert_type": "ssh brute force",
+  "risk": 96.58,
+  "label": "malicious",
+  "status": "open",
+  "timestamp": "2026-11-22T05:22:56.837731+00:00"
+}

@@ -1,0 +1,96 @@
+{
+  "dataset": "CIC-IDS2017",
+  "cleaned_dataset_rows": 2424719,
+  "sample_rows": 100000,
+  "feature_count": 78,
+  "random_split": {
+    "train_rows": 80000,
+    "test_rows": 20000,
+    "duplicates_across_splits": 0,
+    "top_absolute_label_correlations": {
+      "Bwd_Packet_Length_Std": 0.6498896961696131,
+      "Bwd_Packet_Length_Max": 0.6357063375265697,
+      "Bwd_Packet_Length_Mean": 0.6353163725523145,
+      "Avg_Bwd_Segment_Size": 0.6353163725522504,
+      "Packet_Length_Std": 0.6138119771095256,
+      "Max_Packet_Length": 0.5947266470975444,
+      "Packet_Length_Variance": 0.5710468787789083,
+      "Average_Packet_Size": 0.5630387152640901,
+      "Packet_Length_Mean": 0.5614242920027157,
+      "Fwd_IAT_Std": 0.540762976120006
+    },
+    "models": {
+      "logistic_regression": {
+        "precision": 0.730098916627414,
+        "recall": 0.9639303482587065,
+        "f1": 0.8308764406325382,
+        "roc_auc": 0.9878222611323745,
+        "train_f1": 0.8321671298001272,
+        "train_test_f1_gap": 0.0012906891675890098
+      },
+      "random_forest": {
+        "precision": 0.9971927635683094,
+        "recall": 0.994092039800995,
+        "f1": 0.9956399875428216,
+        "roc_auc": 0.9999397525006046,
+        "train_f1": 0.9994561417139305,
+        "train_test_f1_gap": 0.003816154171108921
+      },
+      "xgboost": {
+        "precision": 0.9984428526938648,
+        "recall": 0.9968905472636815,
+        "f1": 0.9976660961568383,
+        "roc_auc": 0.9999832337063491,
+        "train_f1": 0.998911860718172,
+        "train_test_f1_gap": 0.0012457645613336288
+      }
+    },
+    "best_model": "xgboost"
+  },
+  "day_based_split": {
+    "logistic_regression": {
+      "precision": 0.8507699634862677,
+      "recall": 0.6873156342182891,
+      "f1": 0.7603575482406356,
+      "roc_auc": 0.9026392564702128,
+      "train_f1": 0.8912890094979647,
+      "train_test_f1_gap": 0.13093146125732913
+    },
+    "random_forest": {
+      "precision": 0.9961640601947477,
+      "recall": 0.4329870462998589,
+      "f1": 0.603611657428929,
+      "roc_auc": 0.9090400689674802,
+      "train_f1": 0.9998189389824371,
+      "train_test_f1_gap": 0.39620728155350815
+    },
+    "xgboost": {
+      "precision": 0.9985172004744959,
+      "recall": 0.43183275618827754,
+      "f1": 0.6029187930880114,
+      "roc_auc": 0.854235520058614,
+      "train_f1": 1.0,
+      "train_test_f1_gap": 0.39708120691198856
+    }
+  },
+  "baseline_comparison": [
+    {
+      "strategy": "fixed_rules",
+      "alerts_evaluated": 20000,
+      "auto_handled_share": 1.0,
+      "false_negatives": 3136,
+      "avg_pipeline_seconds_per_alert": 2.4930999970820266e-07,
+      "method": "Malicious iff Destination_Port is one of 21,22,23,3389,4444,8080; all alerts auto-decided.",
+      "measurement_scope": "Per-alert local rule evaluation only; excludes enrichment, persistence, actions, and analyst resolution."
+    },
+    {
+      "strategy": "ml_triage",
+      "alerts_evaluated": 20000,
+      "auto_handled_share": 0.83995,
+      "false_negatives": 10,
+      "avg_pipeline_seconds_per_alert": 0.0036956985999582683,
+      "method": "Use 0.50 probability for label; risk >=70 requires analyst approval and is not auto-handled.",
+      "measurement_scope": "Per-alert local model inference only; excludes enrichment, persistence, actions, and analyst resolution."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "ticket_id": "TICKET-DEMO-SSH-001",
+  "alert_id": "DEMO-SSH-001",
+  "alert_type": "ssh brute force",
+  "risk": 99.96,
+  "label": "malicious",
+  "status": "open",
+  "timestamp": "2026-11-24T13:02:36.148847+00:00"
+}

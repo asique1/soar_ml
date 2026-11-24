@@ -1,0 +1,14 @@
+name: notify_telegram
+description: Send or simulate an analyst Telegram notification
+triggers:
+  alert_types:
+    - ssh brute force
+    - rdp brute force
+    - suspicious ip
+    - malicious file hash
+  labels:
+    - malicious
+  minimum_risk: 50
+action:
+  type: notify_telegram
+  simulated: true
